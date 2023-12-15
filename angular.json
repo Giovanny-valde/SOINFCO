@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "SOINFCO"
+  "defaultProject": "SOINFCO",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,38 @@
+<div class="container">
+  <br>
+  <h1>
+    Usuarios
+  </h1>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="link" sortable="id" (sort)="onSort($event)" >#</th>
+        <th  >Avatar</th>
+        <th scope="col" class="link" sortable="name" (sort)="onSort($event)">Nombre</th>
+        <th scope="col" class="link" sortable="email" (sort)="onSort($event)">Correo</th>
+        <th scope="col" class="link" sortable="role" (sort)="onSort($event)">Rol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of usuarioSort | slice: (page-1) * pageSize : page * pageSize">
+        <th class="column" scope="row">{{item.id}}</th>
+        <td class="column"><img [src]="item.avatar" alt=""></td>
+        <td class="column">{{item.name}}</td>
+        <td class="column">{{item.email}}</td>
+        <td class="column">{{item.role}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-left: 15%;">
+    <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="usuarios.length"
+    [maxSize]="5"
+    [rotate]="true"
+    [boundaryLinks]="true"
+    ></ngb-pagination>
+  </div>
+</div>
